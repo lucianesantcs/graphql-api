@@ -49,6 +49,14 @@
       "role": 1,
       "createdAt": "2022-02-23T00:00:00.000Z",
       "id": 7
+    },
+    {
+      "nome": "Carla Souza",
+      "ativo": false,
+      "email": "c@c.com",
+      "role": 2,
+      "createdAt": "2022-02-23T00:00:00.000Z",
+      "id": 8
     }
   ],
   "roles": [

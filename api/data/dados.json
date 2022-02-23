@@ -57,14 +57,6 @@
       "role": 2,
       "createdAt": "2022-02-23T00:00:00.000Z",
       "id": 8
-    },
-    {
-      "nome": "Marcelo Silva",
-      "ativo": false,
-      "email": "m@m.com",
-      "role": 1,
-      "createdAt": "2022-02-23T00:00:00.000Z",
-      "id": 9
     }
   ],
   "roles": [

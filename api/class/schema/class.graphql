@@ -17,6 +17,18 @@ const classSchema = gql `
     turmas: [Turma]
     turma (id: ID!): Turma
   }
+
+  type Mutation {
+    incluiTurma(turma: TurmaInput): Turma!
+  }
+
+  input TurmaInput {
+    descricao: String
+    horario: String
+    vagas: Int
+    inicio: DateTime
+    docente_id: Int
+  }
 `;
 
 module.exports = classSchema;

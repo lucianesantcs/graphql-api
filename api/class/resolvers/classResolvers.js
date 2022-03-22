@@ -1,17 +1,18 @@
-const turmas = [
-  {
-    id: 1,
-    descricao: "básico"
-  },
-  {
-    id: 2,
-    descricao: "intermediário"
-  }
-]
+// const turmas = [
+//   {
+//     id: 1,
+//     descricao: "básico"
+//   },
+//   {
+//     id: 2,
+//     descricao: "intermediário"
+//   }
+// ]
+
 
 const classResolvers = {
   Query: {
-    turmas: (root, args, context, info) => turmas
+    turmas: (root_, __, { dataSources }) => dataSources.classAPI.getClasses()
   }
 }
 

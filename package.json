@@ -22,9 +22,11 @@
   "dependencies": {
     "apollo-datasource-rest": "^3.5.1",
     "apollo-server": "^3.6.2",
+    "datasource-sql": "^2.0.0",
     "graphql": "^16.2.0",
     "graphql-tools": "^8.2.1",
     "json-server": "^0.16.1",
+    "knex": "^0.95.15",
     "nodemon": "^2.0.4",
     "sqlite3": "^5.0.2"
   }

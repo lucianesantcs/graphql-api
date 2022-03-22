@@ -21,6 +21,11 @@ const classSchema = gql `
   type Mutation {
     incluiTurma(turma: TurmaInput): Turma!
     atualizaTurma(id: ID!, turma: TurmaInput): Turma!
+    deletaTurma(id: ID!): RespostaPadrao!
+  }
+
+  type RespostaPadrao implements Resposta {
+    mensagem: String!
   }
 
   input TurmaInput {
@@ -29,6 +34,10 @@ const classSchema = gql `
     vagas: Int
     inicio: DateTime
     docente_id: Int
+  }
+
+  interface Resposta {
+    mensagem: String!
   }
 `;
 

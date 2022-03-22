@@ -3,6 +3,9 @@ const { SQLDataSource } = require('datasource-sql');
 class ClassAPI extends SQLDataSource {
   constructor(dbConfig) {
     super(dbConfig);
+    this.Resposta = {
+      mensagem: ""
+    }
   }
 
   async getClasses() {
@@ -40,6 +43,16 @@ class ClassAPI extends SQLDataSource {
       ...updatedClass
     })
   }
+
+  async deleteClass(id) {
+    await this.db('turmas')
+      .where({ id: id })
+      .del()
+    
+    this.Resposta.mensagem = "registro deletado"
+    return this.Resposta
+  }
+
 }
 
 module.exports = ClassAPI;

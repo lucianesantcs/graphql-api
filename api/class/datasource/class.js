@@ -28,6 +28,18 @@ class ClassAPI extends SQLDataSource {
     const insertedClass = await this.getClass(newClassId[0]);
     return ({ ...insertedClass })
   }
+
+  async updateClass(newData) {
+    await this.db
+      .update({ ...newData.turma })
+      .where({ id: Number(newData.id) })
+      .into('turmas')
+    
+    const updatedClass = await this.getClass(newData.id)
+    return ({
+      ...updatedClass
+    })
+  }
 }
 
 module.exports = ClassAPI;

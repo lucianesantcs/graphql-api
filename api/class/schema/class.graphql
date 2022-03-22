@@ -20,6 +20,7 @@ const classSchema = gql `
 
   type Mutation {
     incluiTurma(turma: TurmaInput): Turma!
+    atualizaTurma(id: ID!, turma: TurmaInput): Turma!
   }
 
   input TurmaInput {

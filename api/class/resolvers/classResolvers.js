@@ -15,7 +15,8 @@ const classResolvers = {
   },
 
   Mutation: {
-    incluiTurma: (_, { turma }, { dataSources }) => dataSources.classAPI.addClass(turma)
+    incluiTurma: (_, { turma }, { dataSources }) => dataSources.classAPI.addClass(turma),
+    atualizaTurma: (_, novosDados, { dataSources }) => dataSources.classAPI.updateClass(novosDados)
   }
 }
 

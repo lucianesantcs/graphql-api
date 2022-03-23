@@ -3,7 +3,7 @@ const { mergeTypeDefs } = require("@graphql-tools/merge");
 const path = require('path');
 
 const { userSchema, userResolvers, UsersAPI } = require('./user');
-const { classSchema, classResolvers, ClassAPI } = require('.class');
+const { classSchema, classResolvers, ClassAPI } = require('./class');
 
 const typeDefs = mergeTypeDefs([userSchema, classSchema]);
 const resolvers = [userResolvers, classResolvers];

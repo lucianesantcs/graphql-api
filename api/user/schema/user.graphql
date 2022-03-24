@@ -9,6 +9,7 @@ const userSchema = gql `
         email: String
         role: Role!
         createdAt: DateTime
+        matriculas: [Matricula]
     }
 
     input UserInput {

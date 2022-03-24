@@ -18,6 +18,16 @@ const classResolvers = {
     incluiTurma: (_, { turma }, { dataSources }) => dataSources.classAPI.addClass(turma),
     atualizaTurma: (_, novosDados, { dataSources }) => dataSources.classAPI.updateClass(novosDados),
     deletaTurma: (_, { id }, { dataSources }) => dataSources.classAPI.deleteClass(id)
+  },
+
+  Turma: {
+    matriculas: (root, _, { dataSources }) => dataSources.registrationAPI.getRegistrationByClass(root.id),
+    docente: (root, _, { dataSources }) => dataSources.usersAPI.getUserById(root.docente_id)
+  },
+
+  Matricula: {
+    estudante: (root, _, { dataSources }) => dataSources.usersAPI.getUserById(root.estudante_id),
+    turma: (root, _, { dataSources }) => dataSources.classAPI.getClass(root.turma_id)
   }
 }
 

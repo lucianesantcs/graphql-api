@@ -18,10 +18,16 @@ class ClassAPI extends SQLDataSource {
     return idsTurmas.map(id => turmas.find(turma => turma.id === id));
   })
 
-  async getClasses() {
+  async getClasses({ page = 0, pageOffset = Infinity }) {
+    const initialRegister = page === 0 || page === 1
+      ? 0
+      : (page * pageOffset) - 1;
+    
     return this.db
       .select('*')
       .from('turmas')
+      .offset(initialRegister)
+      .limit(pageOffset)
   }
 
   async getClass(id) {

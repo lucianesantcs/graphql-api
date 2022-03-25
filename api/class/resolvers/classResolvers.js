@@ -10,7 +10,7 @@ const classResolvers = {
   }),
 
   Query: {
-    turmas: (root_, __, { dataSources }) => dataSources.classAPI.getClasses(),
+    turmas: (root_, args, { dataSources }) => dataSources.classAPI.getClasses(args),
     turma: (root_, { id }, { dataSources }) => dataSources.classAPI.getClass(id)
   },
 

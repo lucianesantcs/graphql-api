@@ -1,4 +1,5 @@
 const { SQLDataSource } = require('datasource-sql');
+const DataLoader = require('dataloader');
 
 class RegistrationAPI extends SQLDataSource {
   constructor(dbConfig) {
@@ -31,13 +32,16 @@ class RegistrationAPI extends SQLDataSource {
     return registrations;
   }
 
-  async getRegistrationByStudent(idEstudante) {
+  registrationsLoader = new DataLoader(this.getRegistrationByStudent.bind(this));
+
+  async getRegistrationByStudent(idsEstudantes) {
     const registrations = await this.db
       .select('*')
       .from('matriculas')
-      .where({ estudante_id: idEstudante })
+      .whereIn('estudante_id', idsEstudantes)
+      .select()
     
-    return registrations;
+    return idsEstudantes.map(id => registrations.filter(registration => registration.estudante_id === id));
   }
 
   async deleteRegistration(idMatricula) {

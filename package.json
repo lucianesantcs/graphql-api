@@ -22,6 +22,7 @@
   "dependencies": {
     "apollo-datasource-rest": "^3.5.1",
     "apollo-server": "^3.6.2",
+    "dataloader": "^2.0.0",
     "datasource-sql": "^2.0.0",
     "graphql": "^16.2.0",
     "graphql-tools": "^8.2.1",

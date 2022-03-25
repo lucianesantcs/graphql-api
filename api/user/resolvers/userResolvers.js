@@ -24,7 +24,7 @@ const userResolvers = {
   },
 
   User: {
-    matriculas: (root, _, { dataSources }) => dataSources.registrationAPI.getRegistrationByStudent(root.id)
+    matriculas: (root, _, { dataSources }) => dataSources.registrationAPI.registrationsLoader.load(root.id)
   }
 };
 

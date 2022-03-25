@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -e js, json, graphql ./api/index.js",
+    "start": "DEBUG=knex:query nodemon -e js, json, graphql ./api/index.js",
     "api": "json-server --watch api/data/dados.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

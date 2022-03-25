@@ -24,11 +24,6 @@ const classResolvers = {
     matriculas: (root, _, { dataSources }) => dataSources.registrationAPI.getRegistrationByClass(root.id),
     docente: (root, _, { dataSources }) => dataSources.usersAPI.getUserById(root.docente_id)
   },
-
-  Matricula: {
-    estudante: (root, _, { dataSources }) => dataSources.usersAPI.getUserById(root.estudante_id),
-    turma: (root, _, { dataSources }) => dataSources.classAPI.getClass(root.turma_id)
-  }
 }
 
 module.exports = classResolvers;

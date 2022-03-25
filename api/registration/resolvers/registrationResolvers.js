@@ -12,8 +12,12 @@ const registrationResolvers = {
   Mutation: {
     matricularEstudante: (_, ids, { dataSources }) => dataSources.registrationAPI.registerStudent(ids),
     deletarMatricula: (_, { matricula }, { dataSources }) => dataSources.registrationAPI.deleteRegistration(matricula),
-    cancelarMatricula: (_, { matricula }, { dataSources }) => dataSources.registrationAPI.cancelRegistration(matricula),
-    turma: (root, _, { dataSources }) => dataSources.classAPI.getLoadedClasses.load(root.turma_id)
+    cancelarMatricula: (_, { matricula }, { dataSources }) => dataSources.registrationAPI.cancelRegistration(matricula)
+  },
+
+  Matricula: {
+    estudante: (root, _, { dataSources }) => dataSources.usersAPI.getUserById(root.estudante_id),
+    turma: (root, _, { dataSources }) => dataSources.classAPI.getClass(root.turma_id)
   }
 }
 

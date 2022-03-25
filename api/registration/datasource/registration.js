@@ -30,6 +30,15 @@ class RegistrationAPI extends SQLDataSource {
     
     return registrations;
   }
+
+  async getRegistrationByStudent(idEstudante) {
+    const registrations = await this.db
+      .select('*')
+      .from('matriculas')
+      .where({ estudante_id: idEstudante })
+    
+    return registrations;
+  }
 }
 
 module.exports = RegistrationAPI;

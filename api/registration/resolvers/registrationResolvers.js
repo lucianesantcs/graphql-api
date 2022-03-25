@@ -12,7 +12,8 @@ const registrationResolvers = {
   Mutation: {
     matricularEstudante: (_, ids, { dataSources }) => dataSources.registrationAPI.registerStudent(ids),
     deletarMatricula: (_, { matricula }, { dataSources }) => dataSources.registrationAPI.deleteRegistration(matricula),
-    cancelarMatricula: (_, { matricula }, { dataSources }) => dataSources.registrationAPI.cancelRegistration(matricula)
+    cancelarMatricula: (_, { matricula }, { dataSources }) => dataSources.registrationAPI.cancelRegistration(matricula),
+    turma: (root, _, { dataSources }) => dataSources.classAPI.getLoadedClasses.load(root.turma_id)
   }
 }
 

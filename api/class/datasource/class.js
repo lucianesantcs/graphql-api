@@ -1,4 +1,5 @@
 const { SQLDataSource } = require('datasource-sql');
+const DataLoader = require('dataloader');
 
 class ClassAPI extends SQLDataSource {
   constructor(dbConfig) {
@@ -7,6 +8,15 @@ class ClassAPI extends SQLDataSource {
       mensagem: ""
     }
   }
+
+  getLoadedClasses = new DataLoader(async idsTurmas => {
+    const turmas = await this.db
+      .select('*')
+      .from('turmas')
+      .whereIn('id', idsTurmas)
+    
+    return idsTurmas.map(id => turmas.find(turma => turma.id === id));
+  })
 
   async getClasses() {
     return this.db

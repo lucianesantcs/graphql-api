@@ -12,7 +12,9 @@ const registrationSchema = gql `
   }
 
   type Mutation {
-    matricularEstudante(estudante: ID!, turma: ID!): RespostaPadrao!
+    matricularEstudante(estudante: ID!, turma: ID!): RespostaPadrao!,
+    deletarMatricula(matricula: ID!): RespostaPadrao!,
+    cancelarMatricula(matricula: ID!): RespostaPadrao!
   }
 `
 

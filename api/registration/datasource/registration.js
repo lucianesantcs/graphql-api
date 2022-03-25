@@ -39,6 +39,25 @@ class RegistrationAPI extends SQLDataSource {
     
     return registrations;
   }
+
+  async deleteRegistration(idMatricula) {
+    await this.db('matriculas')
+      .where({ id: Number(idMatricula) })
+      .del()
+    
+    this.Resposta.mensagem = "registro deletado"
+    return this.Resposta;
+  }
+
+  async cancelRegistration(idMatricula) {
+    await this.db
+      .update({ status: "cancelado" })
+      .where({ id: Number(idMatricula) })
+      .into('matriculas')
+    
+    this.Resposta.mensagem = "matrícula cancelada"
+    return this.Resposta;
+  }
 }
 
 module.exports = RegistrationAPI;

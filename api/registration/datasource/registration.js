@@ -32,9 +32,7 @@ class RegistrationAPI extends SQLDataSource {
     return registrations;
   }
 
-  registrationsLoader = new DataLoader(this.getRegistrationByStudent.bind(this));
-
-  async getRegistrationByStudent(idsEstudantes) {
+  getRegistrationByStudent = new DataLoader( async idsEstudantes => {
     const registrations = await this.db
       .select('*')
       .from('matriculas')
@@ -42,7 +40,7 @@ class RegistrationAPI extends SQLDataSource {
       .select()
     
     return idsEstudantes.map(id => registrations.filter(registration => registration.estudante_id === id));
-  }
+  });
 
   async deleteRegistration(idMatricula) {
     await this.db('matriculas')
